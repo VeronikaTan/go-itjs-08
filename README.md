@@ -56,3 +56,21 @@ npm run dev
 - Изображения добавляйте в папку `src/images`, заранее оптимизировав их. Сборщик просто копирует
   используемые изображения чтобы не нагружать систему оптимизацией картинок, так как на слабых
   компьютерах это может занять много времени.
+
+const save = ('videoplayer-current-time', data.seconds) => {
+
+       try {
+
+    localStorage.setItem('videoplayer-current-time', data.seconds);
+
+} catch (error) { console.error('Set state error: ', error.message); } };
+
+const load = 'videoplayer-current-time' => { try { const serializedState =
+localStorage.getItem('videoplayer-current-time'); return serializedState === null ? undefined :
+data.seconds; } catch (error) { console.error('Get state error: ', error.message); } };
+
+const remove = 'videoplayer-current-time' => { try {
+localStorage.removeItem('videoplayer-current-time'); } catch (error) { console.log('Remove item
+error: ', error.message); } };
+
+export default { save, load, remove, };
